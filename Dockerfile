@@ -1,7 +1,5 @@
 FROM openjdk:8-jdk as build
 WORKDIR /workspace/app
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
