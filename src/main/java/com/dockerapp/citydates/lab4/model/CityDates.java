@@ -1,22 +1,16 @@
 package com.dockerapp.citydates.lab4.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-@Component
 @Data
+@AllArgsConstructor
 public class CityDates {
-
-    private LocalDateTime lublinDate;
-    private LocalDateTime newYorkDate;
-    private LocalDateTime sydneyDate;
-
-    public CityDates() {
-        this.lublinDate = LocalDateTime.now(ZoneId.of("Europe/Warsaw"));
-        this.newYorkDate = LocalDateTime.now(ZoneId.of("America/New_York"));
-        this.sydneyDate = LocalDateTime.now(ZoneId.of("Australia/Sydney"));
-    }
+    private LocalDateTime lublin;
+    private LocalDateTime new_york;
+    private LocalDateTime sydney;
 }

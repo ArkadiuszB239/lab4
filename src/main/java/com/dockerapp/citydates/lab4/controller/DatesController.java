@@ -1,26 +1,23 @@
 package com.dockerapp.citydates.lab4.controller;
 
 import com.dockerapp.citydates.lab4.model.CityDates;
-import javafx.util.Pair;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
-import java.time.ZonedDateTime;
-import java.util.List;
 
 @RestController
 public class DatesController {
-
-    private final CityDates cityDates;
-
-    public DatesController(CityDates cityDates) {
-        this.cityDates = cityDates;
-    }
-
-    @GetMapping("/getDatesM")
+    @GetMapping("/getDates")
     public ResponseEntity<CityDates> getDatesM(){
+        CityDates cityDates = new CityDates(
+                LocalDateTime.now(ZoneId.of("Europe/Warsaw")),
+                LocalDateTime.now(ZoneId.of("America/New_York")),
+                LocalDateTime.now(ZoneId.of("Australia/Sydney"))
+        );
         return ResponseEntity.ok(cityDates);
     }
 }
